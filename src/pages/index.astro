@@ -1,0 +1,419 @@
+
+
+
+---
+import Header from "../components/Header.astro";
+import products from "../products/products.js";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>VnA Deals Hub | Discover. Explore. Shop.</title>
+
+  <meta
+    name="description"
+    content="Explore handpicked products across fashion, technology, gaming and sports at VnA Deals Hub."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      margin: 25px 7%;
+      border-radius: 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #2563eb;
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: #dbeafe;
+      transform: translateY(-3px);
+    }
+
+    /* GENERAL SECTIONS */
+
+    .section {
+      padding: 45px 7%;
+      scroll-margin-top: 100px;
+    }
+
+    .section-title {
+      font-size: 29px;
+      margin-bottom: 25px;
+      color: #0f172a;
+    }
+
+    /* PRODUCT GRID */
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      display: block;
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .product-image {
+      height: 210px;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .product-info p {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    /* CATEGORY SECTIONS */
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      display: block;
+      background: #ffffff;
+      padding: 30px 15px;
+      text-align: center;
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      background: #eff6ff;
+    }
+
+    .category-card h3 {
+      font-size: 18px;
+      color: #1e40af;
+    }
+
+    .category-card p {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 800px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 550px) {
+      .hero {
+        margin: 15px 4%;
+        padding: 65px 18px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 35px 5%;
+        scroll-margin-top: 180px;
+      }
+
+      .section-title {
+        font-size: 25px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <Header />
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <h1>Discover the Best Products for You</h1>
+
+    <p>
+      Explore handpicked products across fashion, technology,
+      gaming and sports — all in one place.
+    </p>
+
+    <a href="#products" class="hero-btn">Explore Products</a>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+
+  <section class="section" id="products">
+    <h2 class="section-title">Featured Products</h2>
+
+    <div class="product-grid">
+      {products.filter((product) => product.featured).map((product) => (
+        <a href={`/product/${product.slug}`} class="product-card" key={product.id}>
+          <div class="product-image">
+            <img
+              src={product.image}
+              alt={product.name}
+            />
+          </div>
+
+          <div class="product-info">
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- FASHION -->
+
+  <section class="section" id="fashion">
+    <h2 class="section-title">Fashion</h2>
+
+    <div class="category-grid">
+      <a href="/fashion" class="category-card">
+        <h3>Clothing</h3>
+        <p>Explore everyday fashion.</p>
+      </a>
+
+      <a href="/fashion" class="category-card">
+        <h3>Anime Wear</h3>
+        <p>Discover anime-inspired styles.</p>
+      </a>
+
+      <a href="/fashion" class="category-card">
+        <h3>Watches</h3>
+        <p>Explore stylish watches.</p>
+      </a>
+
+      <a href="/fashion" class="category-card">
+        <h3>Accessories</h3>
+        <p>Find useful accessories.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+
+  <section class="section" id="technology">
+    <h2 class="section-title">Technology</h2>
+
+    <div class="category-grid">
+      <a href="/tech" class="category-card">
+        <h3>Smartphones</h3>
+        <p>Explore mobile devices.</p>
+      </a>
+
+      <a href="/tech" class="category-card">
+        <h3>Laptops</h3>
+        <p>Discover computing devices.</p>
+      </a>
+
+      <a href="/tech" class="category-card">
+        <h3>Headphones</h3>
+        <p>Explore audio accessories.</p>
+      </a>
+
+      <a href="/tech" class="category-card">
+        <h3>Smart Gadgets</h3>
+        <p>Discover useful technology.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- GAMING -->
+
+  <section class="section" id="gaming">
+    <h2 class="section-title">Gaming Accessories</h2>
+
+    <div class="category-grid">
+      <a href="/gaming" class="category-card">
+        <h3>Keyboards</h3>
+        <p>Explore gaming keyboards.</p>
+      </a>
+
+      <a href="/gaming" class="category-card">
+        <h3>Gaming Mouse</h3>
+        <p>Discover gaming mice.</p>
+      </a>
+
+      <a href="/gaming" class="category-card">
+        <h3>Headsets</h3>
+        <p>Explore gaming audio.</p>
+      </a>
+
+      <a href="/gaming" class="category-card">
+        <h3>Controllers</h3>
+        <p>Discover gaming controllers.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- SPORTS -->
+
+  <section class="section" id="sports">
+    <h2 class="section-title">Sports</h2>
+
+    <div class="category-grid">
+      <a href="/sports" class="category-card">
+        <h3>Cricket</h3>
+        <p>Explore cricket products.</p>
+      </a>
+
+      <a href="/sports" class="category-card">
+        <h3>Football</h3>
+        <p>Discover football gear.</p>
+      </a>
+
+      <a href="/sports" class="category-card">
+        <h3>Sportswear</h3>
+        <p>Explore sports clothing.</p>
+      </a>
+
+      <a href="/sports" class="category-card">
+        <h3>Fitness Gear</h3>
+        <p>Discover sports accessories.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p><strong>VnA Deals Hub</strong></p>
+    <p>Discover. Explore. Shop.</p>
+    <p>© 2026 VnA Deals Hub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

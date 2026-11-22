@@ -1,0 +1,285 @@
+
+---
+import Header from "../components/Header.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | VnA Deals Hub</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero {
+  margin: 35px 4.5%;
+  padding: 85px 25px;
+  min-height: 404px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #111827, #2563eb);
+  border-radius: 22px;
+}
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 19px;
+      color: #e5e7eb;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 1200px;
+      margin: 65px auto;
+      padding: 0 4.5%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 35px;
+      color: #111827;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 5px 22px rgba(0, 0, 0, 0.045);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .info-card h2 {
+      color: #2563eb;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .info-card p {
+      color: #4b5563;
+      font-size: 16px;
+    }
+
+    /* Affiliate disclosure */
+    .disclosure {
+      margin-top: 25px;
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      border-left: 5px solid #2563eb;
+      box-shadow: 0 5px 22px rgba(0, 0, 0, 0.045);
+    }
+
+    .disclosure h2 {
+      color: #2563eb;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .disclosure p {
+      color: #4b5563;
+    }
+
+    /* Contact CTA */
+    .cta {
+      margin-top: 55px;
+      padding: 45px 25px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      border-radius: 18px;
+    }
+
+    .cta h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 25px;
+      color: #e5e7eb;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: white;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 9px;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      background: #e5e7eb;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 70px;
+      padding: 30px 20px;
+      text-align: center;
+      background: #111827;
+      color: #d1d5db;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: #60a5fa;
+    }
+
+    /* Mobile */
+    @media (max-width: 750px) {
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <Header />
+
+  <section class="hero">
+    <h1>About VnA Deals Hub</h1>
+    <p>
+      Your destination to discover interesting products
+      across fashion, technology, gaming and sports.
+    </p>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title">Get to Know Us</h2>
+
+    <div class="about-grid">
+
+      <div class="info-card">
+        <h2>Who We Are</h2>
+        <p>
+          Welcome to VnA Deals Hub — a platform created
+          to help shoppers explore products across
+          different categories in one place.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>What We Do</h2>
+        <p>
+          We aim to help shoppers discover interesting
+          products and find useful information before
+          making a purchase.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>Our Mission</h2>
+        <p>
+          Our goal is to make product discovery simple,
+          convenient and enjoyable for everyone.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>Our Categories</h2>
+        <p>
+          Explore products from fashion, technology,
+          gaming accessories and sports — all together
+          on VnA Deals Hub.
+        </p>
+      </div>
+
+    </div>
+
+    <section class="disclosure">
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        All product links featured on VnA Deals Hub are
+        affiliate links. When you purchase a product
+        through these links, we may earn a commission
+        at no additional cost to you.
+      </p>
+    </section>
+
+    <section class="cta">
+      <h2>Have Questions?</h2>
+      <p>
+        We'd love to hear from you. Get in touch with us
+        for questions, suggestions or business inquiries.
+      </p>
+      <a href="/contact">Contact Us</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 VnA Deals Hub. All rights reserved.</p>
+    <p style="margin-top: 12px;">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact Us</a>
+    </p>
+  </footer>
+
+</body>
+</html>

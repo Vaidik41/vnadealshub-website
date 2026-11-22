@@ -1,0 +1,271 @@
+
+---
+import Header from "../components/Header.astro";
+
+const email = "vnadealshub.official@gmail.com";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | VnA Deals Hub</title>
+
+  
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    line-height: 1.7;
+  }
+
+  /* Hero */
+  .hero {
+  margin: 35px 4.5%;
+  padding: 85px 25px;
+  min-height: 404px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #111827, #2563eb);
+  border-radius: 22px;
+}
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 19px;
+    color: #e5e7eb;
+  }
+
+  /* Contact section */
+  .container {
+    max-width: 1100px;
+    margin: 65px auto;
+    padding: 0 4.5%;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 34px;
+    color: #111827;
+    margin-bottom: 15px;
+  }
+
+  .section-description {
+    text-align: center;
+    color: #6b7280;
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.045);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-card h2 {
+    color: #2563eb;
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .contact-card p {
+    color: #4b5563;
+    margin-bottom: 20px;
+  }
+
+  .email-btn {
+    display: inline-block;
+    padding: 14px 22px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 9px;
+    transition: 0.3s;
+    overflow-wrap: anywhere;
+  }
+
+  .email-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+  }
+
+  /* Bottom section */
+  .bottom-section {
+    margin-top: 45px;
+    padding: 45px 25px;
+    text-align: center;
+    background: linear-gradient(135deg, #111827, #2563eb);
+    color: white;
+    border-radius: 18px;
+  }
+
+  .bottom-section h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+
+  .bottom-section p {
+    color: #e5e7eb;
+    margin-bottom: 25px;
+  }
+
+  .back-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: white;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 9px;
+    transition: 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #e5e7eb;
+    transform: translateY(-2px);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 70px;
+    padding: 30px 20px;
+    text-align: center;
+    background: #111827;
+    color: #d1d5db;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover {
+    color: #60a5fa;
+  }
+
+  /* Mobile */
+  @media (max-width: 750px) {
+    .hero {
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-title {
+      font-size: 28px;
+    }
+
+    .contact-card {
+      padding: 25px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+<Header />
+
+  <section class="hero">
+    <h1>Get in Touch</h1>
+    <p>
+      Have a question, suggestion or business inquiry?
+      We're always happy to hear from you.
+    </p>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title">Contact Our Team</h2>
+
+    <p class="section-description">
+      Choose the right way to connect with VnA Deals Hub.
+    </p>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h2>Email Us</h2>
+        <p>
+          Have questions or need assistance?
+          Send us an email and we'll get back to you.
+        </p>
+
+        <a class="email-btn" href={`mailto:${email}`}>
+          {email}
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <h2>Business Inquiries</h2>
+        <p>
+          Interested in collaborations, partnerships
+          or business opportunities? We'd love to
+          discuss them with you.
+        </p>
+
+        <a class="email-btn" href={`mailto:${email}?subject=Business%20Inquiry`}>
+          Contact for Business
+        </a>
+      </div>
+
+    </div>
+
+    
+
+  </main>
+
+  <footer>
+    <p>© 2026 VnA Deals Hub. All rights reserved.</p>
+
+    <p style="margin-top: 12px;">
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact Us</a>
+    </p>
+  </footer>
+
+</body>
+</html>

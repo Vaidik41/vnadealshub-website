@@ -1,0 +1,334 @@
+
+---
+import Header from "../../components/Header.astro";
+import products from "../../products/products.js";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{product.name} | VnA Deals Hub</title>
+  <meta name="description" content={product.description} />
+</head>
+
+<body>
+  <Header />
+
+  <main class="product-page">
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>{product.name}</span>
+    </div>
+
+    <!-- PRODUCT CONTENT -->
+
+    <section class="product-layout">
+
+      <div class="product-image">
+        <img src={product.image} alt={product.name} />
+      </div>
+
+      <div class="product-info">
+
+        <span class="category">{product.category}</span>
+
+        <h1>{product.name}</h1>
+
+        <p class="description">
+          {product.description}
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="price-note">
+          Check the latest price and availability on Amazon.
+        </p>
+
+        <a
+          href={product.affiliateUrl}
+          class="deal-btn"
+          target="_blank"
+          rel="nofollow sponsored noopener"
+        >
+          Buy Now <span>→</span>
+        </a>
+
+        <p class="affiliate-note">
+          As an Amazon Associate, we may earn from qualifying purchases.
+        </p>
+
+        <div class="trust-info">
+          <div>
+            <span class="trust-icon">✓</span>
+            <span>Product details</span>
+          </div>
+
+          <div>
+            <span class="trust-icon">↗</span>
+            <span>Visit Amazon to purchase</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PRODUCT DESCRIPTION -->
+
+    <section class="details-section">
+      <h2>About This Product</h2>
+      <p>{product.description}</p>
+    </section>
+
+    <div class="back-link">
+      <a href="/">← Back to Home</a>
+    </div>
+
+  </main>
+</body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  .product-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 35px 7% 70px;
+  }
+
+  /* BREADCRUMB */
+
+  .breadcrumb {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 35px;
+  }
+
+  .breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+
+  /* PRODUCT LAYOUT */
+
+  .product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+  }
+
+  .product-image {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .product-image img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+  }
+
+  /* PRODUCT INFO */
+
+  .category {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 6px 13px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 18px;
+  }
+
+  .product-info h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    color: #0f172a;
+    margin-bottom: 18px;
+  }
+
+  .description {
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 22px;
+  }
+
+  .price-note {
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  /* BUY BUTTON */
+
+  .deal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #2563eb;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .deal-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+  }
+
+  .deal-btn span {
+    font-size: 20px;
+  }
+
+  .affiliate-note {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  /* TRUST INFO */
+
+  .trust-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .trust-info div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-size: 14px;
+  }
+
+  .trust-icon {
+    background: #dcfce7;
+    color: #15803d;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  /* DETAILS */
+
+  .details-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 65px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  }
+
+  .details-section h2 {
+    font-size: 24px;
+    color: #0f172a;
+    margin-bottom: 15px;
+  }
+
+  .details-section p {
+    color: #64748b;
+    font-size: 15px;
+  }
+
+  .back-link {
+    margin-top: 35px;
+  }
+
+  .back-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 700px) {
+    .product-page {
+      padding: 25px 5% 50px;
+    }
+
+    .product-layout {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .product-image {
+      min-height: 280px;
+      padding: 25px;
+    }
+
+    .product-image img {
+      max-height: 260px;
+    }
+
+    .product-info h1 {
+      font-size: 32px;
+    }
+
+    .description {
+      font-size: 15px;
+    }
+
+    .details-section {
+      margin-top: 45px;
+      padding: 22px;
+    }
+  }
+</style>

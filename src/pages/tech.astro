@@ -1,0 +1,153 @@
+
+
+---
+import Header from "../components/Header.astro";
+import products from "../products/products.js";
+
+const techProducts = products.filter(
+  (product) => product.category === "Tech"
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Products | VnA Deals Hub</title>
+</head>
+
+<body>
+  <Header />
+
+  <section class="section" id="products">
+    <h2 class="section-title">Technology Products</h2>
+
+    {techProducts.length > 0 ? (
+      <div class="product-grid">
+        {techProducts.map((product) => (
+          <a
+            href={`/product/${product.slug}`}
+            class="product-card"
+          >
+            <div class="product-image">
+              <img src={product.image} alt={product.name} />
+            </div>
+
+            <div class="product-info">
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="empty-message">Technology products coming soon!</p>
+    )}
+  </section>
+</body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 45px 7%;
+  }
+
+  .section-title {
+    font-size: 29px;
+    margin-bottom: 25px;
+    color: #0f172a;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .product-card {
+    display: block;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .product-image {
+    height: 210px;
+    background: #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+
+  .product-info h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: #0f172a;
+  }
+
+  .product-info p {
+    color: #64748b;
+    font-size: 14px;
+  }
+
+  .empty-message {
+    color: #64748b;
+    font-size: 17px;
+  }
+
+  @media (max-width: 800px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .section {
+      padding: 35px 5%;
+    }
+
+    .section-title {
+      font-size: 25px;
+    }
+
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

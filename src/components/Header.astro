@@ -1,0 +1,70 @@
+
+<header>
+  <div class="logo">VnA Deals Hub</div>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/fashion">Fashion</a>
+<a href="/tech">Tech</a>
+<a href="/gaming">Gaming</a>
+<a href="/sports">Sports</a>
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/disclaimer">Disclaimer</a>
+    <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    background: #ffffff;
+    padding: 18px 4.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #2563eb;
+    white-space: nowrap;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  nav a:hover {
+    color: #2563eb;
+  }
+
+  @media (max-width: 900px) {
+    header {
+      justify-content: center;
+    }
+
+    nav {
+      justify-content: center;
+      gap: 14px;
+    }
+  }
+</style>
